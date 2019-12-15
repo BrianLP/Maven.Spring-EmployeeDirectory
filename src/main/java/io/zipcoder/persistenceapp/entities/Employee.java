@@ -1,16 +1,19 @@
 package io.zipcoder.persistenceapp.entities;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 @Entity
 public class Employee {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.TABLE)
     private Integer employeeNumber;
     private String firstName;
     private String lastName;
     private String title;
     private String phoneNumber;
     private String email;
+    @ManyToOne
     private Employee manager;
     private Integer departmentNum;
 

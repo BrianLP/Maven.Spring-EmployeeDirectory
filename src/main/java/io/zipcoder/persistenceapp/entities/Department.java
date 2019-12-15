@@ -2,17 +2,16 @@ package io.zipcoder.persistenceapp.entities;
 
 import org.springframework.web.bind.annotation.GetMapping;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Department {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.TABLE)
     private int id;
     private String name;
+    @OneToOne
     private Employee manager;
 
     public int getId() {
