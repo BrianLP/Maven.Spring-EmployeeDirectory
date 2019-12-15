@@ -14,30 +14,30 @@ public class EmployeeController {
     EmployeeServices employeeServices;
 
 
-    @GetMapping("/employees/{id}")
+    @GetMapping("/API/employees/{id}")
     public ResponseEntity<Employee> getEmployee(@PathVariable Integer id) {
         return new ResponseEntity<Employee>(employeeServices.getEmployee(id), HttpStatus.OK);
     }
 
-    @GetMapping("/employees")
+    @GetMapping("/API/employees")
     public ResponseEntity<Iterable<Employee>> getAllemployees() {
         return new ResponseEntity<Iterable<Employee>>(employeeServices.getAllEmployees(), HttpStatus.OK);
 
     }
 
-    @PostMapping("employees")
+    @PostMapping("/API/employees")
     public ResponseEntity<Employee> createEmployee(@RequestBody Employee employee) {
         return new ResponseEntity<Employee>(employeeServices.createEmployee(employee), HttpStatus.CREATED);
         // @PutMapping
     }
 
 
-    @PutMapping("/employees/{id}")
+    @PutMapping("/API/employees/{id}")
     public ResponseEntity<Employee> updateEmployee(@RequestBody Employee employee) {
         return new ResponseEntity<Employee>(employeeServices.updateEmployee(employee), HttpStatus.OK);
     }
 
-    @DeleteMapping("/employees/{id}")
+    @DeleteMapping("/API/employees/{id}")
     public ResponseEntity<Employee> deleteEmployee(@PathVariable Integer id) {
         employeeServices.deleteEmployee(id);
         return new ResponseEntity<Employee>(HttpStatus.OK);
